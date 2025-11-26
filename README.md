@@ -1,6 +1,6 @@
 
-git checkout -b main
-echo "Línea original para provocar conflicto" > conflicto.txt
+git checkout -b main 2>/dev/null || git checkout main
+echo "Linea original para conflicto" > conflicto.txt
 git add conflicto.txt
 git commit -m "Commit inicial con archivo para conflicto"
 git checkout -b ramaA
@@ -17,10 +17,4 @@ git merge ramaA -m "Merge de ramaA a main"
 git merge ramaB
 git add conflicto.txt
 git commit -m "Conflicto resuelto"
-
-# 9. Ver historial (para capturas)
 git log --graph --decorate --oneline --all
-
-# --- FIN DEL SCRIPT ---
-
-
